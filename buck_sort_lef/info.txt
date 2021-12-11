@@ -6,3 +6,6 @@ srun --partition=cpar ./a.out
 
 # Both 
 gcc -std=c99 -O2 bucket.c && srun --partition=cpar ./a.out
+
+# Papi
+module load papi/5.4.1
