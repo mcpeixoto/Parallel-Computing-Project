@@ -65,6 +65,8 @@ void bucket_sort(int v[], int tam){
             // Incrementar o indice no vetor inicial
             i++;
         }
+        // Libertar espaço do bucket
+        free(b[j].balde);
     }
 }
 
