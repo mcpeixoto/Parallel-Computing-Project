@@ -1,0 +1,8 @@
+# Para compilar
+gcc -std=c99 -O2 bucket.c
+
+# Para executar
+srun --partition=cpar ./a.out
+
+# Both 
+gcc -std=c99 -O2 bucket.c && srun --partition=cpar ./a.out
