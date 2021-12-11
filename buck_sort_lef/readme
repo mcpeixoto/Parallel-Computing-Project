@@ -1,0 +1,4 @@
+versão muito simples do Bucket sort para os alunos de LEF
+- ordena um vetor com valores entre 0 e 99 (esta parte pode ser melhorada pelos alunos)
+- usa o bubble-sort para ordenar cada bucket
+- não liberta a memória reservada com malloc
