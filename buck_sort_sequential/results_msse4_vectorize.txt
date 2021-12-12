@@ -1,0 +1,25 @@
+We have 10 buckets with 100000 elem each.
+
+Setting up PAPI...done!
+This system has 11 available counters.
+
+Initializing random vector...done!
+Warming up caches...done!
+run=0 - Computing bucket_sort...done!
+FORA DO PAPI - Is sorted? Yes
+run=1 - Computing bucket_sort...done!
+FORA DO PAPI - Is sorted? Yes
+run=2 - Computing bucket_sort...done!
+FORA DO PAPI - Is sorted? Yes
+run=3 - Computing bucket_sort...done!
+FORA DO PAPI - Is sorted? Yes
+run=4 - Computing bucket_sort...done!
+FORA DO PAPI - Is sorted? Yes
+
+Wall clock time: 518 usecs
+PAPI_TOT_CYC = 1020926
+PAPI_TOT_INS = 2556093
+PAPI_L1_DCM = 26735
+PAPI_L2_DCM = 13256
+
+That's all, folks

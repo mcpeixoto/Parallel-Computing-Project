@@ -1,3 +1,1 @@
-buck_sort_lef/a.out
-buck_sort_lef/bucket.out
-buck_sort_lef/papi_results.txt
+*.out
