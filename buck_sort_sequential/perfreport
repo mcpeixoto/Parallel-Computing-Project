@@ -1,0 +1,23 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 95
+#
+# Samples: 6K of event 'cycles:uppp'
+# Event count (approx.): 4542669475
+#
+# Overhead       Samples  Command     Shared Object     Symbol                      
+# ........  ............  ..........  ................  ............................
+#
+    99.57%          6428  bucket.out  bucket.out        [.] bubble
+     0.27%            23  bucket.out  [unknown]         [k] 0xffffffffb418c4ef
+     0.10%             7  bucket.out  [unknown]         [k] 0xffffffffb4196098
+     0.01%             1  bucket.out  libpfm.so.4.6.0   [.] intel_x86_event_has_pebs
+     0.01%             1  bucket.out  libc-2.17.so      [.] _IO_getc
+     0.01%             1  bucket.out  ld-2.17.so        [.] do_lookup_x
+     0.01%             1  bucket.out  ld-2.17.so        [.] strcmp
+
+
+#
+# (Tip: To record every process run by a user: perf record -u <user>)
+#

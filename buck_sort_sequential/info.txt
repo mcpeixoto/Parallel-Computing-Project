@@ -12,3 +12,6 @@ module load papi/5.4.1
 
 # Dar run ao papi (bucket_papi.c)
 make clean && make && srun --partition=cpar ./bucket.out
+
+# Para usar o perf
+sbatch --partition=cpar perf.sh
