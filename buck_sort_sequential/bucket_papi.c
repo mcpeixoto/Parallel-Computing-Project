@@ -115,7 +115,9 @@ void print_array(int v[], int N) {
 }
 
 
-
+//**************************//
+//******* PAPI STUFF *******//
+//**************************//
 
 void (*func)(float *, float *, float *, int);
 
