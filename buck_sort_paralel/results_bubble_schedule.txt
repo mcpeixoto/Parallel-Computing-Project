@@ -16,10 +16,10 @@ FORA DO PAPI - Is sorted? Yes
 run=4 - Computing bucket_sort...done!
 FORA DO PAPI - Is sorted? Yes
 
-Wall clock time: 550 usecs
-PAPI_TOT_CYC = 1128632
-PAPI_TOT_INS = 2905793
-PAPI_L1_DCM = 26782
-PAPI_L2_DCM = 1792
+Wall clock time: 541 usecs
+PAPI_TOT_CYC = 980106
+PAPI_TOT_INS = 2284847
+PAPI_L1_DCM = 21209
+PAPI_L2_DCM = 3116
 
 That's all, folks

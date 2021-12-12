@@ -8,8 +8,8 @@ OUT = bucket.out
 # include directories
 INCLUDES = -I.
  
-# C compiler flags -ftree-vectorize -msse4
-CCFLAGS = -std=c99 -O2 -I/share/apps/papi/5.4.1/include
+# C compiler flags te-ftree-vectorize -msse4
+CCFLAGS = -std=c99 -O2 -fopenmp -I/share/apps/papi/5.4.1/include
 
 # compiler
 CCC = gcc 
