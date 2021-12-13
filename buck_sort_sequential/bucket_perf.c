@@ -209,6 +209,13 @@ int main (int argc, char *argv[]) {
     fprintf (stdout, "done!\n");
     
     for (run=0 ; run < NUM_RUNS ; run++) {
+        fprintf (stdout, "Initializing random vector...");
+        int N = tam_bucket;
+        int *v;
+        
+        v = malloc(sizeof(int) * N);
+        random_vector(v, N);
+        fprintf (stdout, "done!\n");
         fprintf (stdout, "run=%d - Computing bucket_sort...", run);
         
         // use PAPI timer (usecs) - note that this is wall clock time
