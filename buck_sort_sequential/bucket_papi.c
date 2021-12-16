@@ -187,6 +187,7 @@ int main (int argc, char *argv[]) {
     // Warmup caches
     fprintf (stdout, "Warming up caches...");
     bucket_sort(v, N);
+    free(v);
     fprintf (stdout, "done!\n");
     
     for (run=0 ; run < NUM_RUNS ; run++) {
@@ -229,7 +230,8 @@ int main (int argc, char *argv[]) {
             for (i=0 ; i< NUM_EVENTS ; i++) min_values[i] = values [i];
         }
         
-        printf("FORA DO PAPI - Is sorted? %s\n", is_sorted(v, N));
+        printf(" Is sorted? %s\n", is_sorted(v, N));
+        free(v);
 
     } // end runs
     fprintf (stdout,"\nWall clock time: %lld usecs\n", min_usec);
