@@ -4,7 +4,3 @@
 # Resultados do papi
 - No ficheiro makefile colocar SRC = bucket_papi.c
 > make clean && make && srun --partition=cpar ./bucket.out
-
-# Resultados perf
-- No ficheiro makefile colocar SRC = bucket.c
-> make clean && make && sbatch --partition=cpar perf.sh
