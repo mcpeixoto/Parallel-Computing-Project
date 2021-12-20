@@ -17,7 +17,7 @@ typedef struct {
 
 // Cabeçalho das funções
 void bucket_sort(int v[], int tam);                
-void sort(int v[], int tam);
+void quickSort(int v[], int low, int high);
 
 // Funções
 void bucket_sort(int v[], int tam){
@@ -49,7 +49,7 @@ void bucket_sort(int v[], int tam){
     for(i=0;i<num_bucket;i++) {
         // sse houver elementos no balde é que vamos ordenar (topo >= 1 - TODO: VERIRICAR)
         if  (b[i].topo) {
-            sort(b[i].balde,b[i].topo);
+            quickSort(b[i].balde,0,b[i].topo-1);
         }
     }             
 
@@ -66,32 +66,63 @@ void bucket_sort(int v[], int tam){
             i++;
         }
         // Libertar espaço do bucket
-        // free(b[j].balde);
+        free(b[j].balde);
     }
 }
 // Quick Sort
-void sort(int v[], int tam){
-    int i,j,x;
-    if(tam<=1) return;
-    i=0;
-    j=tam-1;
-    x=v[tam/2];
-    do{
-        while(v[i]<x) i++;
-        while(v[j]>x) j--;
-        if(i<=j){
-            int aux=v[i];
-            v[i]=v[j];
-            v[j]=aux;
-            i++;
-            j--;
-        }
-    }while(i<=j);
-    sort(v,i);
-    sort(v+i,tam-i);
+
+// function to swap elements
+void swap(int *a, int *b) {
+  int t = *a;
+  *a = *b;
+  *b = t;
 }
 
+// function to find the partition position
+int partition(int array[], int low, int high) {
+  
+  // select the rightmost element as pivot
+  int pivot = array[high];
+  
+  // pointer for greater element
+  int i = (low - 1);
 
+  // traverse each element of the array
+  // compare them with the pivot
+  for (int j = low; j < high; j++) {
+    if (array[j] <= pivot) {
+        
+      // if element smaller than pivot is found
+      // swap it with the greater element pointed by i
+      i++;
+      
+      // swap element at i with element at j
+      swap(&array[i], &array[j]);
+    }
+  }
+
+  // swap the pivot element with the greater element at i
+  swap(&array[i + 1], &array[high]);
+  
+  // return the partition point
+  return (i + 1);
+}
+
+void quickSort(int array[], int low, int high) {
+  if (low < high) {
+    
+    // find the pivot element such that
+    // elements smaller than pivot are on left of pivot
+    // elements greater than pivot are on right of pivot
+    int pi = partition(array, low, high);
+    
+    // recursive call on the left of pivot
+    quickSort(array, low, pi - 1);
+    
+    // recursive call on the right of pivot
+    quickSort(array, pi + 1, high);
+  }
+}
 
 
 
@@ -126,12 +157,13 @@ int main(int argc, char const *argv[]) {
     int N = tam_bucket;
     int *v;
     
-    v = malloc(sizeof(int) * N);
+    v=malloc(sizeof(int) * N);
     random_vector(v, N);
-    
+    //print_array(v, N);
     bucket_sort(v, N);
     
     printf("Is sorted? %s\n", is_sorted(v, N));
     //print_array(v, N);
     return 0;
 }
+

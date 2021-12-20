@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define tam_bucket 100000   // Tamanho de cada balde
+#define tam_bucket 100000  // Tamanho de cada balde
 #define num_bucket 10       // Número de buckets
 #define max 10              // Máximo valor a ordenar = max * num_bucket
 
@@ -121,10 +121,10 @@ int main(int argc, char const *argv[]) {
     
     v = malloc(sizeof(int) * N);
     random_vector(v, N);
-    
+    // print_array(v, N);
     bucket_sort(v, N);
     
     printf("Is sorted? %s\n", is_sorted(v, N));
-    //print_array(v, N);
+    // print_array(v, N);
     return 0;
 }
