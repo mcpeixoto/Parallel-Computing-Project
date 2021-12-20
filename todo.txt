@@ -1,0 +1,44 @@
+---------*/ CENAS PARA FAZER: /*---------
+
+-> Código SEQUENCIAL
+- Benchmark do Perf & Papi 
+- Benchmark do Perf & Papi c/ o free no ultimo loop
+- Benchmark do Perf & Papi c/ um novo algoritmo de sort
+- Outros testes ????
+- Benchmark do Perf & Papi c/ o melhor codigo sequencial que conseguimos
+
+-> Código OpenMP
+Nota: Todos os testes serão comparaveis com o nosso melhor codigo sequencial
+ex: speedup do codigo c/ opem mp em comparação do melhor sequencial
+Nota2: Todos os benchmarks são speedup do exec time em relação as threads
+no paralelismo, também podemos falar do exec time comparativamente as diferentes implementações
+
+- Benchmark c/ paralelismo na sort
+- Benchmark  c/ paralelismo no for loop que chama a sort
+- Benchmark c/ paralelismo no MELHOR CODIGO POSSÍVEL
+
+-> Fazer os testes dos melhores codigos nas varias maquinas do SEARCH
+
+
+--> Outras notas relevantes <--
+> Organizar codigo - Um teste = uma pasta diferente
+
+> Para justificar a mudança da func do sort podemos usar complexidade temporal e espacial, 
+ha varios sites com essas cenas, dps é so referenciar
+
+> O stor disse p/ fazer Medições inteligentes do papi, isto é, apenas medir por exemplo a sort
+em vez da função do bucket sort toda. Epah, visto que estamos a variar uma coisa de cada vez,
+acho que não precisamos de ir a esse detalhe
+
+
+> Não esquecer de vectorizar! Podemos fazer isto nas melhores versões dos nossos programas maybe? 
+Se não acho que ja fica mt confuso e mt cheio o nosso work
+-ftree-vectorize -fopt-info-vec-missed
+-fopt-info-vec
+-msse4 (128bits) 
+Podemos usar em vez disso -mavx (266bits)
+P.S: Ver instruction set extensions do CPU sheet
+
+
+> Não esquecer de referenciar as características da máquina onde tamos a fazer testes. 
+Podemos meter isso ao lado das tabelas / gráficos nos anexos
