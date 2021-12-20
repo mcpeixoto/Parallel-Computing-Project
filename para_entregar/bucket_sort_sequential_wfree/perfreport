@@ -1,0 +1,25 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 97
+#
+# Samples: 6K of event 'cycles:uppp'
+# Event count (approx.): 4711450869
+#
+# Overhead       Samples  Command     Shared Object     Symbol                
+# ........  ............  ..........  ................  ......................
+#
+    99.81%          6665  bucket.out  bucket.out        [.] bubble
+     0.08%            15  bucket.out  [unknown]         [k] 0xffffffffb418c4ef
+     0.03%             3  bucket.out  [unknown]         [k] 0xffffffffb4196098
+     0.02%             1  bucket.out  bucket.out        [.] bucket_sort
+     0.01%             1  bucket.out  libc-2.17.so      [.] __random
+     0.01%             1  bucket.out  bucket.out        [.] random_vector
+     0.01%             1  bucket.out  libc-2.17.so      [.] __random_r
+     0.01%             1  bucket.out  libc-2.17.so      [.] _dl_addr
+     0.01%             1  bucket.out  ld-2.17.so        [.] do_lookup_x
+
+
+#
+# (Tip: For a higher level overview, try: perf report --sort comm,dso)
+#
