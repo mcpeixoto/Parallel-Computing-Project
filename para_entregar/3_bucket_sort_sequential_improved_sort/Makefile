@@ -1,5 +1,5 @@
 # source files.
-SRC =bucket.c
+SRC =bucket_papi.c
 
 OBJ = $(SRC:.cpp=.o)
 
