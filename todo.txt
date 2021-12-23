@@ -42,3 +42,5 @@ P.S: Ver instruction set extensions do CPU sheet
 
 > Não esquecer de referenciar as características da máquina onde tamos a fazer testes. 
 Podemos meter isso ao lado das tabelas / gráficos nos anexos
+
+POR UNIDADES NAS TABELAS/GRAFICOS
