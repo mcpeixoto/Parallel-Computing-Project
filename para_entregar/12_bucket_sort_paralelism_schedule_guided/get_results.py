@@ -97,7 +97,7 @@ for thread in threads:
                 print(f"{minutes}m {seconds}s / 5 = {real_time}s")
 
                 if not 'Is sorted? Yes' in slurm_file:
-                    print("Slurm file:\n", slurm_file)
+                    #print("Slurm file:\n", slurm_file)
                     raise Exception("Is not sorted")
 
             except:
