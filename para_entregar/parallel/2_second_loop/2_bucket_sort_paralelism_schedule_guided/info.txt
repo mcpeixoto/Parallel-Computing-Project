@@ -5,5 +5,6 @@
 # Execute only the code
 > make clean && make && srun --partition=cpar bucket.out
 
-# Quick-Execution and visualization with time.sh
-> make clean && make && sbatch --partition=cpar time5x.sh && rm slurm-* && sleep 1 && cat slurm-* && rm slurm-*
+# Run python script
+> module load opt-python
+> python3.6 get_results.py
