@@ -25,7 +25,7 @@ for thread in threads:
             os.system("rm slurm-*")
             print("\n")
             print("-"*5)
-            print(f"Currenty at Test {i} of {total_tests} ({round((i/total_tests)*100,2)}\% Complete): \nthread = {thread} \nlen_vector = {len_vector} \nnum_bucket = {num_bucket}")
+            print(f"Currenty at Test {i} of {total_tests} ({round((i/total_tests)*100,2)}% Complete): \nthread = {thread} \nlen_vector = {len_vector} \nnum_bucket = {num_bucket}")
             print("-"*5)
             # Load original code
             bucket_original = load_file("bucket_original.c")
