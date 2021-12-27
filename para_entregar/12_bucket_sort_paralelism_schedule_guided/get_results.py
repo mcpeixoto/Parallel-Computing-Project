@@ -16,6 +16,21 @@ threads = [2, 4, 8, 16, 32, 64, 128]
 lens_vector = [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000]
 nums_bucket = [1, 10, 100, 1000, 10000, 100000, 1000000]
 
+
+# If results.csv exists
+if os.path.isfile("results.csv"):
+    # Ask user if he wants to delete it
+    print("[!] Results.csv already exists, do you want to delete it? (y/n)")
+    while True:
+        answer = input()
+        if answer == "y":
+            os.system("rm results.csv")
+            break
+        elif answer == "n":
+            break
+        else:
+            print("[!] Answer with 'y' or 'n'")
+
 i = 1
 total_tests = len(threads) * len(lens_vector) * len(nums_bucket)
 for thread in threads:
