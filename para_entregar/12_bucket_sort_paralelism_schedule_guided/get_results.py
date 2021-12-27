@@ -70,7 +70,7 @@ for thread in threads:
                 
                 slurms = [x for x in slurms if 'bucket.out' not in x] # bucket.out dava problemas xD
 
-                if len(slurms) >= 1 and load_file(slurms[0]) != '':
+                if len(slurms) >= 1 and 'sys' in load_file(slurms[0]): # O ficheiro existe e carregou até a ultima linha
                     print("Results detected!")
                     break
                 else:
