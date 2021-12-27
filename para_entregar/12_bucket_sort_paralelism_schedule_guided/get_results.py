@@ -14,7 +14,7 @@ def load_file(file_name):
 
 threads = [2, 4, 8, 16, 32, 64, 128]
 lens_vector = [1, 10, 100, 1000, 10000, 100000, 1000000]
-nums_bucket = [1, 10, 100, 1000, 10000, 100000, 1000000]
+nums_bucket = [1, 10, 100, 1000, 10000, 100000, 100000]
 
 
 # If results.csv exists
@@ -122,7 +122,7 @@ for thread in threads:
             #input("sad")
             
 
-            
+os.system("rm slurm-*")
 
 
 
