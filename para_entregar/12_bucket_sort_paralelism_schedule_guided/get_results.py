@@ -52,10 +52,10 @@ for thread in threads:
             bucket_original = bucket_original.replace("num_threads(64)", "num_threads(" + str(thread) + ")")
 
             # Replace len vector
-            bucket_original = bucket_original.replace("tam_bucket 10000", "tam_bucket " + str(num_bucket))
+            bucket_original = bucket_original.replace("tam_bucket 10000", "tam_bucket " + str(len_vector))
 
             # Replace the number of buckets
-            bucket_original = bucket_original.replace("num_bucket 10", "num_bucket " + str(thread))
+            bucket_original = bucket_original.replace("num_bucket 10", "num_bucket " + str(num_bucket))
 
             # Write the current test to bucket.c
             with open("bucket.c", 'w') as f:
