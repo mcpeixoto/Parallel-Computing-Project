@@ -13,7 +13,7 @@ def load_file(file_name):
 
 
 threads = [2, 4, 8, 16, 32, 64, 128]
-lens_vector = [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000]
+lens_vector = [1, 10, 100, 1000, 10000, 100000, 1000000]
 nums_bucket = [1, 10, 100, 1000, 10000, 100000, 1000000]
 
 
@@ -63,17 +63,20 @@ for thread in threads:
             os.system("make clean && make && sbatch --partition=cpar time5x.sh")
 
             # Wait untill "slurm-*" file appears
+            time_to_wait = 2
+            i = 0
             while True:
                 slurms = glob(join(os.getcwd(), "*.out"))
                 
                 slurms = [x for x in slurms if 'bucket.out' not in x] # bucket.out dava problemas xD
 
-                if len(slurms) >= 1:
+                if len(slurms) >= 1 and load_file(slurms[0]) != '':
                     print("Results detected!")
                     break
                 else:
-                    print("Waiting for results..")
-                    time.sleep(2)
+                    print(f"Waiting for results for {i*(time_to_wait+i/2)}s..")
+                    time.sleep(time_to_wait+i/2) # Fancy waiting
+                i += 1
 
             # Raise error if len(slurms) != 1
             if len(slurms) != 1:
@@ -115,6 +118,8 @@ for thread in threads:
             os.system("rm bucket.c")
 
             time.sleep(1) # Se nao fica too fast for the OS xD
+
+            input("sad")
             
 
             
