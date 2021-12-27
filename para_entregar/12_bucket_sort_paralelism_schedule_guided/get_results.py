@@ -31,7 +31,7 @@ if os.path.isfile("results.csv"):
         else:
             print("[!] Answer with 'y' or 'n'")
 
-i = 1
+iteration = 1
 total_tests = len(threads) * len(lens_vector) * len(nums_bucket)
 for thread in threads:
     for len_vector in lens_vector:
@@ -41,7 +41,7 @@ for thread in threads:
             time.sleep(0.5)
             print("\n")
             print("-"*5)
-            print(f"Currenty at Test {i} of {total_tests} ({round((i/total_tests)*100,2)}% Complete): \nthread = {thread} \nlen_vector = {len_vector} \nnum_bucket = {num_bucket}")
+            print(f"Currenty at Test {iteration} of {total_tests} ({round((iteration/total_tests)*100,2)}% Complete): \nthread = {thread} \nlen_vector = {len_vector} \nnum_bucket = {num_bucket}")
             print("-"*5)
             # Load original code
             bucket_original = load_file("bucket_original.c")
@@ -112,7 +112,7 @@ for thread in threads:
 
             
 
-            i += 1
+            iteration += 1
 
             # Delete bucket.c
             os.system("rm bucket.c")
