@@ -119,7 +119,7 @@ for thread in threads:
 
             time.sleep(1) # Se nao fica too fast for the OS xD
 
-            input("sad")
+            #input("sad")
             
 
             
