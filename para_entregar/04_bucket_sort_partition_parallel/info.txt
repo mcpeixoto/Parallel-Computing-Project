@@ -1,0 +1,9 @@
+
+# Execute with time5x.sh
+> make clean && make && sbatch --partition=cpar time5x.sh
+
+# Execute only the code
+> make clean && make && srun --partition=cpar bucket.out
+
+# Quick-Execution and visualization with time.sh
+> make clean && make && sbatch --partition=cpar time5x.sh && rm slurm-* && sleep 1 && cat slurm-* && rm slurm-*

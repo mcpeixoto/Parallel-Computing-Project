@@ -5,8 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define tam_bucket 10000   // Tamanho de cada balde
-#define num_bucket 10       // Número de buckets
+#define tam_bucket 15   // Tamanho de cada balde
+#define num_bucket 10      // Número de buckets
 #define max 10              // Máximo valor a ordenar = max * num_bucket
 
 // Definição de 'bucket'
@@ -46,10 +46,7 @@ void bucket_sort(int v[], int tam){
     }
     
     // Ordena os baldes
-    //#pragma omp parallel for num_threads(64)
 
-    // Using shedule
-    #pragma omp parallel for schedule(guided) num_threads(64)
     for(i=0;i<num_bucket;i++) {
         // sse houver elementos no balde é que vamos ordenar (topo >= 1 - TODO: VERIRICAR)
         if  (b[i].topo) {
@@ -93,6 +90,9 @@ int partition(int array[], int low, int high) {
 
   // traverse each element of the array
   // compare them with the pivot
+  int j;
+  int x;
+  #pragma omp parallel for reduction(+:j,i)
   for (int j = low; j < high; j++) {
     if (array[j] <= pivot) {
         
@@ -103,6 +103,7 @@ int partition(int array[], int low, int high) {
       // swap element at i with element at j
       swap(&array[i], &array[j]);
     }
+    x*=0;
   }
 
   // swap the pivot element with the greater element at i
@@ -163,11 +164,11 @@ int main(int argc, char const *argv[]) {
     
     v=malloc(sizeof(int) * N);
     random_vector(v, N);
-    //print_array(v, N);
+    print_array(v, N);
     bucket_sort(v, N);
     
     printf("Is sorted? %s\n", is_sorted(v, N));
-    //print_array(v, N);
+    print_array(v, N);
     return 0;
 }
 
