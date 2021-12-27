@@ -13,7 +13,9 @@ def load_file(file_name):
 
 
 threads = [2, 4, 8, 16, 32, 64, 128]
-lens_vector = [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000]
+#lens_vector = [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000]
+lens_vector = [1000000000]
+
 nums_bucket = [1, 10, 100, 1000, 10000, 100000, 1000000]
 
 
@@ -38,6 +40,7 @@ for thread in threads:
         for num_bucket in nums_bucket:
             # Remove slurm file
             os.system("rm slurm-*")
+            time.sleep(0.5)
             print("\n")
             print("-"*5)
             print(f"Currenty at Test {i} of {total_tests} ({round((i/total_tests)*100,2)}% Complete): \nthread = {thread} \nlen_vector = {len_vector} \nnum_bucket = {num_bucket}")
@@ -81,11 +84,26 @@ for thread in threads:
             # Load file
             slurm_file = str(load_file(slurms[0]))
 
+            # Get real time
+            try:
+                real_time_line = slurm_file.split("\n")[-4]
+                minutes = float(real_time_line.split("m")[0].split('real')[1])
+                seconds = float(real_time_line.split("m")[1].split("s")[0])
 
-            real_time = float(slurm_file.split("m")[-3].split("s")[0]) / 5 # we divide by 5 because we run 5 times
+                real_time = (minutes*60 + seconds) / 5 # we divide by 5 because we run 5 times
+                print("-"*5)
+                print("Total time:")
+                print(f"{minutes}m {seconds}s / 5 = {real_time}s")
 
-            print("-"*5)
-            print("Total time:", real_time)
+                if not 'Is sorted? Yes' in slurm_file:
+                    print("Slurm file:\n", slurm_file)
+                    raise Exception("Is not sorted")
+
+            except:
+                print("[!] Error getting real time, setting to None")
+                real_time = None
+                print("Slurm file:\n", slurm_file)
+
 
             # Write to csv
             with open("results.csv", 'a') as f:
@@ -94,14 +112,11 @@ for thread in threads:
             
 
             i += 1
-            #time.sleep(1)
-
-            # input("check")
 
             # Delete bucket.c
             os.system("rm bucket.c")
 
-            time.sleep(0.5) # Se nao fica too fast for the OS xD
+            time.sleep(1) # Se nao fica too fast for the OS xD
             
 
             
