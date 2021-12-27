@@ -64,7 +64,7 @@ for thread in threads:
 
             # Wait untill "slurm-*" file appears
             time_to_wait = 2
-            i = 0
+            i = 1
             while True:
                 slurms = glob(join(os.getcwd(), "*.out"))
                 
