@@ -44,3 +44,7 @@ P.S: Ver instruction set extensions do CPU sheet
 Podemos meter isso ao lado das tabelas / gráficos nos anexos
 
 POR UNIDADES NAS TABELAS/GRAFICOS
+
+
+
+colocar possiveis melhoramentos na conclusão do genero: vetorizar
