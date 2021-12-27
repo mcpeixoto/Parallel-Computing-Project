@@ -48,3 +48,6 @@ POR UNIDADES NAS TABELAS/GRAFICOS
 
 
 colocar possiveis melhoramentos na conclusão do genero: vetorizar
+
+1º loop
+em vez de ser uma lock global em todos os baldes, teriamos uma lock individual para cada
