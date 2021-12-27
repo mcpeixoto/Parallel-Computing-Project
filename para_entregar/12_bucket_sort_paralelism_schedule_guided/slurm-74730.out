@@ -1,9 +1,0 @@
-/var/spool/slurmd/job74730/slurm_script: line 5: 30154 Segmentation fault      $MY/bucket.out
-/var/spool/slurmd/job74730/slurm_script: line 5: 30155 Segmentation fault      $MY/bucket.out
-/var/spool/slurmd/job74730/slurm_script: line 5: 30156 Segmentation fault      $MY/bucket.out
-/var/spool/slurmd/job74730/slurm_script: line 5: 30157 Segmentation fault      $MY/bucket.out
-/var/spool/slurmd/job74730/slurm_script: line 5: 30158 Segmentation fault      $MY/bucket.out
-
-real	0m0.064s
-user	0m0.053s
-sys	0m0.008s
