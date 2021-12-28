@@ -35,15 +35,13 @@ void bucket_sort(int v[], int tam){
     
 
     // Colocação dos elementos nos baldes correspondentes
-    #pragma omp parallel for schedule(guided) num_threads(64)
     for(i=0;i<tam;i++){ 
         int elem = v[i];    // Elemento atual
 
         // Ao fazer a divisão inteira do elemento atual
         // com o máximo de v, conseguimos obter o indice do balde
         // ao qual esse elemento corresponde
-        int x = elem/max;
-        #pragma omp critical   
+        int x = elem/max;   
         b[x].balde[b[x].topo++] = elem; // Coloca o elemento no balde correspondente e incrementa o topo desse balde
     }
     
@@ -51,7 +49,7 @@ void bucket_sort(int v[], int tam){
     //#pragma omp parallel for num_threads(64)
 
     // Using shedule
-    //#pragma omp parallel for schedule(guided) num_threads(64)
+    
     for(i=0;i<num_bucket;i++) {
         // sse houver elementos no balde é que vamos ordenar (topo >= 1 - TODO: VERIRICAR)
         if  (b[i].topo) {
@@ -62,13 +60,18 @@ void bucket_sort(int v[], int tam){
     // Põe os elementos dos baldes de volta no vetor
     i=0;
     // Para cada balde
+    #pragma omp parallel for ordered
     for(j=0;j<num_bucket;j++){   
         // Para cada elemento do balde
+        #pragma omp ordered
+        #pragma omp parallel for schedule(guided)
         for(k=0;k<b[j].topo;k++){
             // Vamos coloca-lo no vetor inicial
+        
             v[i]=b[j].balde[k];
 
             // Incrementar o indice no vetor inicial
+            
             i++;
         }
         // Libertar espaço do bucket
