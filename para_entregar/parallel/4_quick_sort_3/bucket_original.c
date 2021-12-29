@@ -5,8 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define tam_bucket 1   // Tamanho de cada balde
-#define num_bucket 1       // Número de buckets
+#define tam_bucket 10000   // Tamanho de cada balde
+#define num_bucket 10       // Número de buckets
 #define max 10              // Máximo valor a ordenar = max * num_bucket
 
 // Definição de 'bucket'
@@ -112,20 +112,21 @@ int partition(int array[], int low, int high) {
 
 
 void quickSort(int array[], int low, int high) {
+  #pragma omp parallel num_threads(64)
+  #pragma omp single
   if (low < high) {
     
     // find the pivot element such that
     // elements smaller than pivot are on left of pivot
     // elements greater than pivot are on right of pivot
     int pi = partition(array, low, high);
-    #pragma omp parallel num_threads(2)
-    #pragma omp single  
+  
     // recursive call on the left of pivot
     #pragma omp task
     quickSort(array, low, pi - 1);
     
     // recursive call on the right of pivot
-    #pragma omp single
+    
     #pragma omp task
     quickSort(array, pi + 1, high);
   }
