@@ -39,7 +39,7 @@ for thread in threads:
     for len_vector in lens_vector:
         for num_bucket in nums_bucket:
             # Remove slurm file
-            os.system("rm slurm-*")
+            
             time.sleep(0.5)
             print("\n")
             print("-"*5)
@@ -87,7 +87,7 @@ for thread in threads:
             #input("sad")
             
 
-os.system("rm slurm-*")
+
 
 
 

@@ -182,5 +182,6 @@ int main(int argc, char const *argv[]) {
     
     printf("Is sorted? %s\n", is_sorted(v, N));
     printf("The time is -%f-\n", end-start);
+    printf("FFS");
     return 0;
 }
