@@ -4,3 +4,8 @@
 # Resultados do papi
 - No ficheiro makefile colocar SRC = bucket_papi.c
 > make clean && make && srun --partition=cpar ./bucket.out
+
+
+# Run python script
+> module load opt-python
+> python3.6 get_results.py
