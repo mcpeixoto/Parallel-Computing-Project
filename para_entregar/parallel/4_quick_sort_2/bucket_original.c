@@ -18,6 +18,7 @@ typedef struct {
 // Cabeçalho das funções
 void bucket_sort(int v[], int tam);                
 void quickSort(int v[], int low, int high);
+void ompQuickSort(int v[], int low, int high);
 
 // Funções
 void bucket_sort(int v[], int tam){
@@ -110,26 +111,31 @@ int partition(int array[], int low, int high) {
   return (i + 1);
 }
 
+void ompQuickSort(int array[], int low, int high) {
+    if (low < high) {
+    
+        // find the pivot element such that
+        // elements smaller than pivot are on left of pivot
+        // elements greater than pivot are on right of pivot
+        int pi = partition(array, low, high);
+    
+        // recursive call on the left of pivot
+        #pragma omp task
+        ompQuickSort(array, low, pi - 1);
+        
+        // recursive call on the right of pivot
+        #pragma omp task
+        ompQuickSort(array, pi + 1, high);
+
+        #pragma omp taskwait
+  }
+}
+
 
 void quickSort(int array[], int low, int high) {
   #pragma omp parallel num_threads(64)
-  #pragma omp single
-  if (low < high) {
-    
-    // find the pivot element such that
-    // elements smaller than pivot are on left of pivot
-    // elements greater than pivot are on right of pivot
-    int pi = partition(array, low, high);
-  
-    // recursive call on the left of pivot
-    #pragma omp task
-    quickSort(array, low, pi - 1);
-    
-    // recursive call on the right of pivot
-    
-    #pragma omp task
-    quickSort(array, pi + 1, high);
-  }
+  #pragma omp single nowait
+  ompQuickSort(array, low, high);
 }
 
 // Código para testar o algoritmo
