@@ -61,11 +61,11 @@ void bucket_sort(int v[], int tam){
     // Põe os elementos dos baldes de volta no vetor
     i=0;
     // Para cada balde
-    #pragma omp parallel for ordered
+    #pragma omp parallel for ordered num_threads(64)
     for(j=0;j<num_bucket;j++){   
         // Para cada elemento do balde
         #pragma omp ordered
-        #pragma omp parallel for schedule(guided)
+        #pragma omp parallel for schedule(guided) num_threads(64)
         for(k=0;k<b[j].topo;k++){
             // Vamos coloca-lo no vetor inicial
         
