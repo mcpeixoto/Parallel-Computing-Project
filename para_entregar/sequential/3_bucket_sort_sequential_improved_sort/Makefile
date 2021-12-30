@@ -1,24 +1,24 @@
 # source files.
-SRC =bucket_original.c
+SRC =bucket_papi.c
 
 OBJ = $(SRC:.cpp=.o)
 
 OUT = bucket.out
 
 # include directories
-#INCLUDES = -I.
+INCLUDES = -I.
  
 # C compiler flags 
 # -ftree-vectorize -msse4
 # -g -fno-omit-frame-ointer
 #-I/share/apps/papi/5.4.1/include
-CCFLAGS = -std=c99 -O2 
+CCFLAGS = -std=c99 -O2 -I/share/apps/papi/5.4.1/include
 
 # compiler
 CCC = gcc 
 
 # libraries
-#LIBS = -L/share/apps/papi/5.4.1/lib -lm -lpapi
+LIBS = -L/share/apps/papi/5.4.1/lib -lm -lpapi
 
 .SUFFIXES: .cpp .c 
 

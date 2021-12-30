@@ -4,7 +4,7 @@
 #include "papi.h"
 
 
-#define tam_bucket 100000  // Tamanho de cada balde
+#define tam_bucket 10000  // Tamanho de cada balde
 #define num_bucket 10       // Número de buckets
 #define max 10              // Máximo valor a ordenar = max * num_bucket
 
