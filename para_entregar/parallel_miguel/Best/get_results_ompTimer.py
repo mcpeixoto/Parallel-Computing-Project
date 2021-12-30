@@ -14,7 +14,7 @@ def load_file(file_name):
         return f.read()
 
 
-threads = [2, 4, 8, 12, 16, 24, 32, 48, 64]
+threads = [2, 4, 8, 10, 12, 16, 24, 32, 48, 64]
 lens_vector = [1000000]
 nums_bucket =  [10, 1000]
 
