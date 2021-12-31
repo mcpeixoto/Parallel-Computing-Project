@@ -15,7 +15,7 @@ def load_file(file_name):
 
 
 threads = [1]
-lens_vector = [1000000]
+lens_vector = [1000000, 800, 6500]
 nums_bucket =  [10, 1000]
 
 
