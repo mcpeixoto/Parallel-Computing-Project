@@ -52,13 +52,15 @@ void bucket_sort(int v[], int tam){
     // Ordena os baldes
 
   // Using shedule
-    #pragma omp parallel for schedule(guided) num_threads(64)
+    #pragma omp parallel for num_threads(num_bucket)
     for(i=0;i<num_bucket;i++) {
         // sse houver elementos no balde é que vamos ordenar (topo >= 1 - TODO: VERIRICAR)
         if  (b[i].topo) {
+            #pragma omp task
             quickSort(b[i].balde,0,b[i].topo-1);
         }
-    }  
+    }
+    //#pragma omp taskwait
 
     // Põe os elementos dos baldes de volta no vetor
     i=0;
