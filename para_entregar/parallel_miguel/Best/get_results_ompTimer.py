@@ -18,6 +18,8 @@ threads = [2, 4, 8, 10, 12, 16, 24, 32, 48, 64]
 lens_vector = [1000000, 800, 6500]
 nums_bucket =  [10, 1000]
 
+# cpar, week
+NODE_TO_RUN = "week" 
 
 # If results_omp.csv exists
 if os.path.isfile("results_omp.csv"):
@@ -64,7 +66,7 @@ for thread in threads:
             time.sleep(0.5)
             
             # Run the code
-            process = subprocess.Popen("make clean && make && srun --partition=cpar bucket.out", shell=True, stdout=subprocess.PIPE)
+            process = subprocess.Popen(f"make clean && make && srun --partition={NODE_TO_RUN} bucket.out", shell=True, stdout=subprocess.PIPE)
 
             process_return = str(process.stdout.read())
             # print(process_return)      
