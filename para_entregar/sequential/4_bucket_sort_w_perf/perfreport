@@ -1,0 +1,29 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 3
+#
+# Samples: 30  of event 'cycles:ppp'
+# Event count (approx.): 538990342
+#
+# Overhead       Samples  Command     Shared Object      Symbol                           
+# ........  ............  ..........  .................  .................................
+#
+    92.63%            10  bucket.out  bucket.out         [.] partition
+     5.30%             1  bucket.out  libc-2.17.so       [.] __random
+     1.25%             3  bucket.out  [kernel.kallsyms]  [k] nmi
+     0.20%             2  bucket.out  [kernel.kallsyms]  [k] __find_get_page
+     0.19%             2  bucket.out  [kernel.kallsyms]  [k] copy_page_rep
+     0.14%             1  bucket.out  [kernel.kallsyms]  [k] retint_userspace_restore_args
+     0.11%             1  bucket.out  [kernel.kallsyms]  [k] perf_iterate_ctx
+     0.11%             1  bucket.out  [kernel.kallsyms]  [k] path_openat
+     0.06%             1  bucket.out  [nfs]              [k] nfs_file_flush
+     0.01%             1  perf        [kernel.kallsyms]  [k] __x86_indirect_thunk_r15
+     0.00%             1  perf        [kernel.kallsyms]  [k] _paravirt_nop
+     0.00%             1  perf        [kernel.kallsyms]  [k] native_sched_clock
+     0.00%             5  perf        [kernel.kallsyms]  [k] native_write_msr_safe
+
+
+#
+# (Tip: Customize output of perf script with: perf script -F event,ip,sym)
+#

@@ -10,9 +10,9 @@ INCLUDES = -I.
  
 # C compiler flags 
 # -ftree-vectorize -msse4
-# -g -fno-omit-frame-ointer
+# -g -fno-omit-frame-pointer
 #-I/share/apps/papi/5.4.1/include
-CCFLAGS = -std=c99 -O2 -I/share/apps/papi/5.4.1/include
+CCFLAGS = -std=c99 -O2 -g -fno-omit-frame-pointer
 
 # compiler
 CCC = gcc 
