@@ -1,0 +1,5 @@
+# 1º passo, dar load ao papi
+> module load papi/5.4.1
+
+# Run perf
+sbatch --partition=cpar ./perf.sh
