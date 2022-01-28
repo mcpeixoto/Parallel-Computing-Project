@@ -1,9 +1,0 @@
-Is sorted? Yes
-[ perf record: Woken up 1 times to write data ]
-Warning:
-Processed 33 samples and lost 9.09%!
-
-[ perf record: Captured and wrote 0.016 MB perf.data (30 samples) ]
-Warning:
-Processed 33 samples and lost 9.09%!
-
