@@ -9,6 +9,8 @@ An improved sequential bucket sort was implemented and scrutinized using **OpenM
 Here you can find our **final report**, all of the **code** used, and even some **python scripts** used to automate the diferent experiments made on the [SeARCH Cluster](https://www4.di.uminho.pt/search/pt/).
 
 
+Final Report -> [here](Final_Report.pdf).
+
 ## Authors
 - Maria Gabriela Oliveira, mgabijo@gmail.com
 - Miguel Caçador Peixoto, miguelpeixoto457@gmail.com
